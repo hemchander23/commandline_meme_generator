@@ -21,6 +21,8 @@
   "homepage": "https://github.com/hemchander23/commandline_meme_generator#readme",
   "dependencies": {
     "commander": "^2.20.0",
-    "jimp": "^0.6.4"
+    "jimp": "^0.6.4",
+    "mime": "^2.4.4",
+    "request": "^2.88.0"
   }
 }

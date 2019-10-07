@@ -2,7 +2,13 @@
 
 ## Example :
 
+To convert a image to meme locally
+
 `mkmeme create-meme  "New Feature|Developers" -i "sample/input.jpg" -o 'sample/output.jpg' -s 1.6 -p "20|500" -a 'C'`
+
+To convert an online image to meme
+
+`mkmeme create-meme  "All memes are dying|This meme:" -i "https://i.imgflip.com/2gnnjh.jpg" -p "10|150"`
 
 ## Command 
 `mkmeme create-meme <text>`
@@ -21,6 +27,8 @@ where `<text>` contains multiple lines delimited by `|` symbol
 | -p | --position | string  | Provide values seperated by `|` symbol to place the text at the respective Y-coordinate |
 | -a | --align | string | Provide a alignment value. Default is center (C) . Possible values are [L,C,R]|
 
+
+`mkmeme create-meme  "New Feature|Developers" -i "sample/input.jpg" -o 'sample/output.jpg' -s 1.6 -p "20|500" -a 'C'`
 ## Before:
 
 ![](sample/input.jpg)
@@ -28,6 +36,13 @@ where `<text>` contains multiple lines delimited by `|` symbol
 ## After:
 
 ![](sample/output.jpg)
+
+
+*From the internet*
+
+`mkmeme create-meme  "All memes are dying|This meme:" -i "https://i.imgflip.com/2gnnjh.jpg" -p "10|150"`
+
+![](sample/output2.jpg)
 
 ## To Contribute:
 
