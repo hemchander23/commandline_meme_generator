@@ -7,12 +7,14 @@
 Options:
 
 'mkmeme create-meme <text>'
-  - '-i, --imagein [imagepath]' -> 'Base Image'
-  - '-o, --imageout [imagepath]' -> 'Output Image'
- - '-s, --scale [number]' -> 'Provide a value from 0 to 1 to adjust the image scale'
- -  '-p, --position [number]' -> 'Provide a value from 0 to 1 to adjust the image scale'
-- '-a, --align [L,C,R]' -> 'Provide a alignment value. Default is center (C)'
 
+| Short Flag | Long Name | Description |
+| ----------- | ----------- | ----------- |
+| -i | --imagein [imagepath] | Base Image | 
+| -o | --imageout [imagepath] | Output Image |
+| -s | --scale [number] | Provide a value from 0 to 1 to adjust the image scale |
+| -p | --position [number] | Provide a value from 0 to 1 to adjust the image scale |
+| -a | --align [L,C,R] | Provide a alignment value. Default is center (C) |
 
 ## Before:
 
