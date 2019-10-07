@@ -1,6 +1,6 @@
-## Light-weight CLI to generate meme from image
+# Light-weight CLI to generate meme from image
 
-Test:
+## Example :
 
 `mkmeme create-meme  "New Feature|Developers" -i "sample/input.jpg" -o 'sample/output.jpg' -s 1.6 -p "20|500" -a 'C'`
 
@@ -14,15 +14,15 @@ Options:
 - '-a, --align [L,C,R]' -> 'Provide a alignment value. Default is center (C)'
 
 
-Before:
+## Before:
 
 ![](sample/input.jpg)
 
-After:
+## After:
 
 ![](sample/output.jpg)
 
-To Contribute:
+## To Contribute:
 
 1. Fork this repository and `cd` into the directory
 2. Do `npm i -g`
