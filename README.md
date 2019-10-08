@@ -24,7 +24,7 @@ where `<text>` contains multiple lines delimited by `|` symbol
 | -i | --imagein | string | Input Image - provide path| 
 | -o | --imageout | string | Output Image - provide path|
 | -s | --scale | float | Multiplier to adjust the image zoom/scale. Default is 1 |
-| -p | --position | string  | Provide values seperated by `|` symbol to place the text at the respective Y-coordinate |
+| -p | --position | string  | Provide values seperated by pipe symbol to place the text at the respective Y-coordinate |
 | -a | --align | string | Provide a alignment value. Default is center (C) . Possible values are [L,C,R]|
 
 
