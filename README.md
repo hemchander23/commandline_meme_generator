@@ -44,6 +44,11 @@ where `<text>` contains multiple lines delimited by `|` symbol
 
 ![](sample/output2.jpg)
 
+## More Examples
+
+1. `mkmeme "When production goes down"`
+2. `mkmeme "*PHP" -i "https://cdn.ebaumsworld.com/mediaFiles/picture/718392/85780332.jpg" -p "560"`
+
 ## To Contribute:
 
 1. Fork this repository and `cd` into the directory
