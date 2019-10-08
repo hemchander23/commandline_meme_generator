@@ -18,16 +18,20 @@ program
       if (err) throw err;
       //Download image if its a public URL
       if (cmd.imagein) {
+        const image_in_filename = 'image.png'
         let image_in = cmd.imagein;
+        
         if (validateUrl(image_in)) {
           //Download the image
-          download(image_in, 'image.png', function (mimety) {
+          download(image_in, image_in_filename, function (mimety) {
             // console.log(mimety);
             if (['png', 'jpg', 'jpeg', 'tiff', 'gif', 'bmp'].contains(mimety)) {
-              cmd.imagein = 'image.png';
+              cmd.imagein = image_in_filename;
             } else {
               throw "Unsupported image format !";
             }
+
+            fs.unlinkSync(image_in_filename)
           });
         }
       } else {
