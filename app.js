@@ -9,6 +9,7 @@ const mime = require('mime');
 program
   .command('create-meme <text>', 'Create meme')
   .option('-i, --imagein [imagepath]', 'Input Image - provide path.Default is muppet image', "https://i.imgflip.com/2gnnjh.jpg")
+  .option('-f, --font [fontpath]', 'Input Font - provide path.Default is impact-yellow font', "https://raw.githubusercontent.com/hemchander23/commandline_meme_generator/master/font/impact-yellow/72/font.fnt")
   .option('-o, --imageout [imagepath]', 'Output Image - provide path', 'output.jpg')
   .option('-s, --scale [number]', 'Multiplier to adjust the zoom/scale. This is indirectly to adjust the size of meme text', 1.0)
   .option('-p, --position [number]', 'Provide values seperated by pipe symbol `|` to place the text at the respective Y-coordinate', 10)
@@ -44,10 +45,10 @@ program
           if (tx_arr.length > y_arr.length)
             console.error("More text to position. Make sure the number of text parts match the position blocks defined");
           y_arr.forEach(function (v, k) {
-            writeTextToMeme(img, String(tx_arr[k]), parseInt(v), cmd, align);
+            writeTextToMeme(img, String(tx_arr[k]), parseInt(v), cmd, align, cmd.font);
           })
         } else {
-          writeTextToMeme(img, text, 20, cmd, align);
+          writeTextToMeme(img, text, 20, cmd, align, cmd.font);
         }
       });
     } else {
@@ -57,8 +58,8 @@ program
 
 
 
-function writeTextToMeme(img, text, y, cmd, align) {
-  Jimp.loadFont("./font/impact-yellow/72/font.fnt").then(font => {
+function writeTextToMeme(img, text, y, cmd, align,font) {
+  Jimp.loadFont(font).then(font => {
     img.print(font, 10, y, {
       text: text,
       alignmentX: align
