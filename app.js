@@ -12,13 +12,13 @@ program
   .option('-f, --font [fontpath]', 'Input Font - provide path.Default is impact-yellow font', "https://raw.githubusercontent.com/hemchander23/commandline_meme_generator/master/font/impact-yellow/72/font.fnt")
   .option('-o, --imageout [imagepath]', 'Output Image - provide path', 'output.jpg')
   .option('-s, --scale [number]', 'Multiplier to adjust the zoom/scale. This is indirectly to adjust the size of meme text', 1.0)
-  .option('-p, --position [number]', 'Provide values seperated by pipe symbol `|` to place the text at the respective Y-coordinate', 10)
+  .option('-p, --position [x,y] coordinates ', 'Provide values seperated by pipe symbol `[x,y]|[x,y]` to place the text at the respective Y-coordinate', [10,10])
   .option('-a, --align [L,C,R]', 'Provide a alignment value. Default is center (C)', 'C')
   .action(function (text, cmd) {
     if (cmd.imagein) {
       Jimp.read(cmd.imagein, (err, img) => {
         if (err) {
-          console.error("An Error Occurred",err);
+          console.error("An Error Occurred", err);
           return;
         }
         //Download image if its a public URL
@@ -45,10 +45,11 @@ program
           if (tx_arr.length > y_arr.length)
             console.error("More text to position. Make sure the number of text parts match the position blocks defined");
           y_arr.forEach(function (v, k) {
-            writeTextToMeme(img, String(tx_arr[k]), parseInt(v), cmd, align, cmd.font);
+            const [x, y] = v.replace(/[\[\]']+/g, '').split(',');
+            writeTextToMeme(img, String(tx_arr[k]), parseInt(x), parseInt(y), cmd, align, cmd.font);
           })
         } else {
-          writeTextToMeme(img, text, 20, cmd, align, cmd.font);
+          writeTextToMeme(img, text, 10, 20, cmd, align, cmd.font);
         }
       });
     } else {
@@ -58,9 +59,9 @@ program
 
 
 
-function writeTextToMeme(img, text, y, cmd, align,font) {
+function writeTextToMeme(img, text, x, y, cmd, align, font) {
   Jimp.loadFont(font).then(font => {
-    img.print(font, 10, y, {
+    img.print(font, x, y, {
       text: text,
       alignmentX: align
     }, img.bitmap.width - 50);
