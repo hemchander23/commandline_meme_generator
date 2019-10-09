@@ -47,7 +47,9 @@ where `<text>` contains multiple lines delimited by `|` symbol
 ## More Examples
 
 1. `mkmeme "When production goes down"`
-2. `mkmeme "*PHP" -i "https://cdn.ebaumsworld.com/mediaFiles/picture/718392/85780332.jpg" -p "560"`
+2. `mkmeme "*PHP" -i "https://cdn.ebaumsworld.com/mediaFiles/picture/718392/85780332.jpg" -p ",560"`
+3. `mkmeme "Who drank the milk|*me" -p "10|[200,200]" -a "C"`
+4. `mkmeme "Who drank the milk|*me" -p "10|[200,200]" -a "C" -f "opensans-black"`
 
 ## To Contribute:
 
